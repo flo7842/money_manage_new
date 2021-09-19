@@ -1,0 +1,225 @@
+
+body,
+html{
+    --sidebar: 300px;
+}
+
+body{
+    box-sizing: border-box;
+}
+
+#wrapper #content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/** DarkTheme **/
+.dark{
+    background-color: #292c35!important;
+}
+
+.whiteFont, .btn-dark{
+    color: rgba(255,255,255,.8)!important;
+}
+
+
+.table td{
+    border-top: 1px solid #e3e6f0!important;
+}
+
+ul.sidebar{
+    --sidebarClamped: clamp(100px, var(--sidebar), 50vw);
+    width: var(--sidebarClamped)!important;
+}
+
+.bg-gradient-primary{
+    background-color: #073857;
+    background-image: none;
+}
+
+ul li a i::before{
+    color: white;
+}
+
+.btn-primary{
+    color: #fff;
+    background-color: #073857;
+    border-color: none;
+}
+
+
+
+#accordionSidebar{
+    position: relative;
+}
+
+.resizer{
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 20px;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+.resizer::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: coral;
+    transform: scale(0);
+    opacity: 0;
+    transition: .3s;
+}
+
+.resizer:hover::after{
+    opacity: 1;
+    transform: scaleX(0.2);
+}
+
+.rotate-15 {
+    transform: rotate(0deg);
+}
+
+.rotate-n-15 {
+    transform: rotate(0deg);
+}
+
+.logo-company{
+    width: 40px;
+}
+
+#topMenuBtns{
+    position: absolute;
+    right: 20px;
+}
+.topMenuBtn{
+    color: #4e73df;
+    border: none;
+    outline: none;
+    background: transparent;
+    margin: 0 5px;
+    -webkit-app-region: no-drag;
+}
+
+#topMenu{
+    /** Disable select content **/
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
+
+.fl-right{
+    float: right;   
+}
+
+.table td, .table th{
+    vertical-align: baseline;
+}
+
+.table-detail{
+    border: 1px solid black;
+}
+
+.text-left{
+    text-align: left;
+}
+
+#dateSelector{
+    text-align: center;
+}
+
+#dateSelector button{
+    color: #858796;
+    border: none;
+    outline: none;
+    background: transparent;
+    margin: 0 14px;
+}
+
+.amount-badge{
+    width: 70px;
+}
+
+.actif-employee{
+    margin-top: 4rem!important;
+    margin-bottom: 2rem!important;
+}
+
+.modal-header{
+    align-items: center;
+}
+
+.modal-header .close {
+    padding: 2rem 2rem;
+    margin: -1rem -1rem -1rem auto;
+}
+
+/** DarkTheme **/
+.dashbord-row{
+    display: flex;
+    align-content: center;
+    align-items: baseline;
+}
+
+.navbar-left-dark, .cards-dark{
+    background: #3c3c50;
+}
+
+.btn-darktheme{
+    margin-right: 2rem;
+}
+
+.checkbox{
+    opacity: 0;
+    position: absolute;
+}
+
+.input-dark{
+    background-color: #00000026;
+}
+
+.checkbox:checked + .label .ball{
+    transform: translate(24px);
+}
+
+.label{
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 5px;
+    border-radius: 50px;
+    height: 26px;
+    width: 50px;
+}
+
+.ball{
+    width: 22px;
+    height: 22px;
+    top: 2px;
+    left: 2px;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.fa-moon{
+    color: #f1c40f;
+}
+
+.fa-sun{
+    color: #f39c12
+}
+
+.footer-dark{
+    background-color: #292c35!important
+}
+
+.col-form-label{
+    color: #6b6d7d!important;
+}

@@ -1,0 +1,15 @@
+#exportPdf, #accordionSidebar, #addReg, #topMenuBtns, .action-th, .btn-action, .fa-chevron-left, .fa-chevron-right{
+    display: none;
+}
+
+.modal-backdrop .fade .show{
+    background: #968b8b;
+}
+
+.modal-backdrop.show {
+    opacity: 1;
+}
+
+.btn-payslip-action{
+    display: none;
+}

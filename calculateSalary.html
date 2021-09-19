@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculateur de salaire</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/payslip.css" rel="stylesheet">
+    <link href="css/pdf.css" rel="stylesheet" media="print">
+    
+  </head>
+  <body>
+       <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <img src="./img/budget.png" class="logo-company" alt="Logo money manage">
+                </div>
+                <div class="sidebar-brand-text mx-3">Money Manage</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item dashbord-row">
+                      <a class="nav-link" href="index.html">
+                          <i class="fas fa-fw fa-tachometer-alt"></i>
+                          <span>Dashboard</span>
+                      </a>
+                      <div class="btn-darktheme">
+                        <input type="checkbox" class="checkbox" id="checkbox">
+                        <label for="checkbox" class="label">
+                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-sun"></i>
+                            <div class="ball"></div>
+                        </label>
+                    </div>
+                  </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Page
+            </div>
+
+            <!-- Nav Item - Livre compte -->
+            <li class="nav-item">
+                <a class="nav-link" href="livre.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Livre de compte</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="employees.html">
+                    <i class="fas fa-male"></i>
+                    <span>Liste des employés</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="InfoEmployees.html">
+                    <i class="fas fa-id-card"></i>
+                    <span>Infos employés</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="calculateSalary.html">
+                    <i class="fas fa-calculator"></i>
+                    <span>Calculateur de salaire</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+            <div class="resizer"></div>
+            
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" id="topMenu">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <ul class="nav" id="topMenuBtns">
+                        <li>
+                            <button id="reduceBtn" class="topMenuBtn">&#128469;&#xFE0E;</button>
+                        </li>
+                        <li>
+                            <button id="sizeBtn" class="topMenuBtn">&#128470;&#xFE0E;</button>
+                        </li>
+                        <li>
+                            <button id="closeBtn" class="topMenuBtn">&#128473;&#xFE0E;</button>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="container-fluid">
+                    <!-- Main Content -->
+                    <!-- End of Topbar -->
+                        <h1>Calculateur de salaire</h1>
+                        <form id="myForm" onsubmit="return false;">
+                        <div class="form-group">
+                            <label for="grossSalary">Salaire brut&nbsp;:</label>
+                            <input id="grossSalary" class="form-control form-control-inline" type="number" placeholder="€">
+                        </div>
+                        <div class="form-group">
+                            <label for="additionBonus">Bonus&nbsp;:</label>
+                            <input id="additionBonus"  type="checkbox">
+                        </div>
+                        <div class="form-group">
+                            <label for="additionAllowance">Allocation&nbsp;:</label>
+                            <input id="additionAllowance"  type="checkbox">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Genre&nbsp;:</label>
+                            <select id="gender" class="form-control">
+                            <option value="M">Homme</option>
+                            <option value="F">Femme</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="employee">Salarié</label>
+                            <select id="selectEmployee" class="form-control" aria-placeholder="">
+                                <option>Choisir un salarié</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dependents">Congé pris ce mois-ci:</label>
+                            <input id="payedHolidaysTaked" class="form-control form-control-inline" type="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="dependents">Personnes à charge&nbsp;:</label>
+                            <input id="dependents" class="form-control form-control-inline" type="number">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-calcul" value="Calculer" onclick="computeSalary()">
+                            <input type="reset" class="btn btn-secondary" value="Effacer" onclick="resetAll()">
+                        </div>
+                        </form>
+                        <hr>
+                        <p>Impôt sur le revenu&nbsp;: <span id="incomeTaxResult"></span></p>
+                        <p>Assurance employé&nbsp;: <span id="employmentInsuranceResult"></span></p>
+                        <p>Suppléments&nbsp;: <span id="additionsResult"></span></p>
+                        <p>Salaire net&nbsp;: <span id="finalSalaryResult"></span></p>
+                    </div>
+                    <button 
+                        id="openPaySlid" 
+                        class="btn btn-primary fl-right mb-4 mx-4"
+                        data-toggle="modal"
+                        data-target="#openPayslipModal">Ouvrir la fiche de paie
+                    </button>
+                </div>
+
+                <!--Start Modal-->
+
+                <div class="modal fade" id="openPayslipModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <!-- Start Modal header content -->
+                        <div class="d-flex justify-content-between">
+                            <div class="top-content-modal-left">
+                                <h5 class="modal-title" id="modalLabel">Bulletin de PAIE clarifié</h5>
+                                <div class="d-flex justify-content-between">
+                                    <p class="payslip-font">Paye du :</p>
+                                    <p id="paySlipDate" class="payslip-font">01/04/2021 au : 30/04/2021</p>
+                                </div>
+                                <div class="info-qualif">
+                                    <table>
+                                        <tbody>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark">Matricule</td>
+                                                <td class="border-dark" id="registrationLabel"></td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark">N˚ Sécurité Sociale</td>
+                                                <td class="border-dark" id="socialLabel"></td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark">Emploi</td>
+                                                <td class="border-dark" id="job"></td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark">Qualification</td>
+                                                <td class="border-dark" id="qualificationLabel"></td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark">Coefficient</td>
+                                                <td class="border-dark"></td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark">Entrée le</td>
+                                                <td class="border-dark" id="entryDate"></td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark">Heures payées</td>
+                                                <td class="border-dark">151,670</td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-between text-left">
+                                                <td class="border-dark">Plafond période</td>
+                                                <td class="border-dark">3 428,00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="top-content-modal-right">
+                                <div class="info-qualif">
+                                    <h5 class="modal-title" id="modalLabelBlockLeft">SAS skillUp</h5>
+                                    <table>
+                                        <tbody>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark">Programmation informatique</td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark">102 Rue des Petites écuries</td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark">75010</td>
+                                                <td class="border-dark">PARIS</td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark">NAF</td>
+                                                <td class="border-dark">6201Z</td>
+                                                <td class="border-dark">SIRET</td>
+                                                <td class="border-dark">48569873200078</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="info-qualif">
+                                    <h5 class="modal-title" id="modalLabelBlockRight">Mr </h5>
+                                    <table>
+                                        <tbody>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark" id="addressLabel"></td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-between">
+                                                <td class="border-dark" id="addressNumberLabel"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal header content -->
+                        <!-- Start Modal body content -->
+                        <div class="modal-body">
+                            <table class="table-detail">
+                                <thead>
+                                    <tr>
+                                        <th class="payslip-font">RUBRIQUES</th>
+                                        <th class="payslip-font">BASE</th>
+                                        <th class="payslip-font">TAUX</th>
+                                        <th class="payslip-font">A PAYER</th>
+                                        <th class="payslip-font">Taux Pat.</th>
+                                        <th class="payslip-font">Mt Pat</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border-dark text-left">Salaire de base</td>
+                                        <td class="border-dark">151,67</td>
+                                        <td class="border-dark" id="rate">10,250</td>
+                                        <td class="border-dark">1 554,62</td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-dark text-left">(Salaire minimum : 100 % Smic)</td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-dark text-left">Prime de vacances CCN</td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                    </tr>
+                                    <tr class="row-gross-total">
+                                        <td class="border-dark">Total brut</td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark" id="gross-total"></td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-dark col-ealth">Santé</td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-dark text-left">Sécurité Sociale - Maladie Maternité Invalidité Décès</td>
+                                        <td class="border-dark">151,67</td>
+                                        <td class="border-dark">10,250</td>
+                                        <td class="border-dark" class="gross-salary">1 554,62</td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-dark text-left">Complémentaire Incapacité Invalidité Décès</td>
+                                        <td class="border-dark">151,67</td>
+                                        <td class="border-dark">10,250</td>
+                                        <td class="border-dark gross-salary">1 554,62</td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-dark text-left">Complémentaire Santé</td>
+                                        <td class="border-dark">151,67</td>
+                                        <td class="border-dark">10,250</td>
+                                        <td class="border-dark">1 554,62</td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-dark col-ealth">ACCIDENT DU TRAVAIL-MALADIES PROFESSIONNELLES</td>
+                                        <td class="border-dark">151,67</td>
+                                        <td class="border-dark">10,250</td>
+                                        <td class="border-dark gross-salary">1 554,62</td>
+                                        <td class="border-dark"></td>
+                                        <td class="border-dark"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- End Modal body content -->
+                        <div class="content-salary">
+                            <div>
+                                <div>
+                                    <h2>NET A PAYER AVANT IMPOT SUR LE REVENU</h2>
+                                </div>
+                                <p class="evolution-salary">dont évolution de la rémunération liée à la suppression des cotisations salariales chômage et maladie</p>
+                            </div>
+                            <div>
+                                <div>
+                                    <p class="payslip-font" id="salaryNet">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <table class="table-detail table-footer">
+                                <thead>
+                                    <tr>
+                                        <th class="payslip-font">Impôt sur le revenu</th>
+                                        <th class="payslip-font">Base</th>
+                                        <th class="payslip-font">Tx pers. (DGFIP)</th>
+                                        <th class="payslip-font">Montant</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border-dark text-left">Impôt sur le revenu prélevé à la source</td>
+                                        <td class="border-dark">0,00</td>
+                                        <td class="border-dark">0,000 </td>
+                                        <td class="border-dark" id="amountTax"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-dark text-left">Régularisations sur le prélèvement à la source</td>
+                                        <td class="border-dark">7,00</td>
+                                        <td class="border-dark">10,250</td>
+                                        <td class="border-dark">-71,75</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <table class="table-footer-payment">
+                                <tr>
+                                    <td class="text-left">REGLEMENT :</td>
+                                    <td>CHEQUE</td>
+                                    <td></td>
+                                    <td class="net-salary">NET PAYE EN EUROS</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">LE :</td>
+                                    <td id="endDate"></td>
+                                    <td></td>
+                                    <td class="payslip-font net-salary" id="salaryNetTable"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="divPaidHolidays">
+                            <table class="table-footer-payment table-footer-payment-holidays">
+                                <tr>
+                                    <th>CONGES</th>
+                                    <th>Dûs</th>
+                                    <th>Acquis</th>
+                                    <th>Pris</th>
+                                    <th>Restant</th>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">C.P. N-1</td>
+                                    <td id="totalPaidHolidays"></td>
+                                    <td></td>
+                                    <td id="takedValuePaidHoliday"></td>
+                                    <td id="restePaidHolidays"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">C.P. N </td>
+                                    <td></td>
+                                    <td>2,5</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-payslip-action">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" id="exportPdf">Exporter en PDF</button>
+                </div>
+            </div>
+            
+            <!--End Modal-->
+        </div>
+    <script>
+        window.$ = window.jQuery = require('./vendor/jquery/jquery.min.js')
+    </script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/calculateSalary.js" type="text/javascript"></script>
+  </body>
+</html>

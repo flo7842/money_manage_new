@@ -1,0 +1,212 @@
+#openPayslipModal{
+    width: 850px;
+    height: auto;
+    background: white;
+    font-family: sans-serif;
+    padding-right: 0!important;
+    margin-top: -4rem;
+}
+
+.modal{
+    top: 10%!important;
+    left: 17%!important;
+}
+
+.modal-content{
+    border: none;
+}
+
+.modal-dialog {
+    max-width: 718px;
+    margin: 1.75rem auto;
+}
+
+#modalLabel{
+    color: black;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+#modalLabelBlockLeft, #modalLabelBlockRight{
+    color: black;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.top-content-modal-left{
+    width: 40%;
+}
+
+.top-content-modal-right{
+    width: 55%;
+    margin-top: auto;
+}
+
+.top-content-modal-left p, .top-content-modal-right p,.top-content-modal-left td, .top-content-modal-right td{
+    font-size: 0.7rem;
+    width: 50%;
+}
+
+.info-qualif{
+    padding: 6px 5px;
+    border: 1px solid black;
+    border-radius: 7px;
+    margin-bottom: 0.4rem;
+}
+
+table{
+    width: 100%;
+}
+
+td{
+    color: black;
+}
+
+.table-detail th {
+    text-align: center;
+    border: 1px solid black;
+}
+
+.table-detail tr th:nth-child(1) {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.table-detail td {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.table-detail tr{
+    border: none!important;
+}
+
+.table-detail{
+    border-collapse: collapse;
+}
+
+.table-detail tr:first-child td:nth-child(4){
+    text-align: right;
+}
+
+tr{
+    width: 100%;
+}
+
+th{
+    font-size: 0.7rem;
+    color: black;
+}
+
+.payslip-font{
+    color: black!important;
+}
+
+.modal-body{
+    padding: 0;
+}
+
+
+.modal-body td{
+    text-align: end;
+    font-size: 0.6rem;
+    padding-right: 4px;
+    padding-left: 10px;
+}
+
+.row-gross-total{
+    background-color: #f2f2f2;
+    color: black;
+    font-weight: bold;
+    text-align: end;
+}
+
+.col-ealth{
+    text-align: left!important;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding-left: 5px!important;
+}
+
+
+.table-detail {
+    border-collapse: collapse;
+}
+
+.content-salary{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: baseline;
+    color: black;
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 0px 5px;
+}
+
+.content-salary h2{
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.modal-footer{
+    padding: 0!important;
+}
+
+.modal-footer>* {
+    margin: 0!important;
+}
+
+.evolution-salary{
+    color: black;
+    font-size: 0.6rem;
+    margin-bottom: 0;
+}
+
+.table-footer tr td{
+    text-align: end;
+    font-size: 0.6rem;
+    padding-right: 4px;
+    padding-left: 10px;
+}
+
+.table-footer-payment{
+    margin-top: 0.3rem;
+}
+.table-footer-payment-holidays{
+    margin-top: 0rem!important;
+}
+
+.table-footer-payment td{
+    font-size: 0.6rem;
+    width: 29%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.net-salary{
+    font-weight: bold;
+    font-size: 0.5rem!important;
+    padding: 0.6rem 0;
+    border: 1px solid;
+    text-align: center;
+}
+
+#salaryNetTable{
+    font-size: 0.6rem!important;
+    text-align: end;
+    padding: 0 0.3rem!important;
+}
+
+#divPaidHolidays{
+    border: 1px solid black;
+    border-radius: 7px;
+    margin-top: 0.5rem;
+    padding: 0px 5px;
+}
+
+.btn-payslip-action{
+    text-align: end;
+    padding: 2rem 0;
+    margin-right: 4rem;
+}
